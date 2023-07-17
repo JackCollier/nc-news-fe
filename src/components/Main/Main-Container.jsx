@@ -10,10 +10,11 @@ function MainContainer(params) {
   console.log(currentPageNumber);
 
   useEffect(() => {
-    getArticles().then((articleData) => {
+    getArticles(currentPageNumber).then((articleData) => {
       setArticles(articleData);
+      console.log(articleData);
     });
-  }, []);
+  }, [currentPageNumber]);
 
   const handlePageChange = (binary) => {
     if (binary) {
