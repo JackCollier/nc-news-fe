@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Article from "./Article";
 import { getArticles } from "../utils/Api-Util";
+import { Route, Routes } from "react-router-dom";
 
 function MainContainer(params) {
   const [articles, setArticles] = useState([]);
@@ -13,7 +14,9 @@ function MainContainer(params) {
 
   return (
     <div className="main-container">
-      <Article articles={articles} />
+      <Routes>
+        <Route path="/" element={<Article articles={articles} />} />
+      </Routes>
     </div>
   );
 }
