@@ -79,3 +79,21 @@ img {
 .fa-caret-square-o-right:hover {
   cursor: pointer;
 }
+
+.fa-bars {
+  font-size: 2rem;
+  position: relative;
+}
+.fa-bars:hover {
+  cursor: pointer;
+}
+
+/* dropdown 8 */
+
+.dropdown-box {
+  position: absolute;
+  right: 0px;
+  background-color: #242424c5;
+  min-width: 300px;
+  height: 400px;
+}
