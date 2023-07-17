@@ -1,11 +1,11 @@
-function PageButtons({ handlePageChange }) {
+function PageButtons({ handlePageChange, currentPageNumber }) {
   return (
     <>
       <i
         className="fa fa-caret-square-o-left"
         onClick={() => handlePageChange(false)}
       ></i>
-      <p>1</p>
+      <p>{currentPageNumber}</p>
       <i
         className="fa fa-caret-square-o-right"
         onClick={() => handlePageChange(true)}
