@@ -14,3 +14,9 @@ export const getArticles = (pageNum) => {
     return res.data.articles.articles;
   });
 };
+
+export const getTopics = () => {
+  return newsApi.get("/topics").then((res) => {
+    return res.data.topics;
+  });
+};
