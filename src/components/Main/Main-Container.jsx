@@ -7,12 +7,10 @@ import PageButtons from "./PageButtons";
 function MainContainer(params) {
   const [articles, setArticles] = useState([]);
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
-  console.log(currentPageNumber);
 
   useEffect(() => {
     getArticles(currentPageNumber).then((articleData) => {
       setArticles(articleData);
-      console.log(articleData);
     });
   }, [currentPageNumber]);
 
