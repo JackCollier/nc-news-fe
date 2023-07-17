@@ -26,14 +26,16 @@ function DropDown(params) {
       <i className="fa fa-bars" aria-hidden="true" onClick={handleOpen}>
         {open ? (
           <div className="dropdown-box">
-            <p>Filter by Topic:</p>
-            {topics.map(({ slug }) => {
-              return (
-                <Link to={slug}>
-                  <p onClick={() => setTopicFilter(slug)}>{slug}</p>
-                </Link>
-              );
-            })}
+            <section className="filter-topic-section">
+              <p>Filter by Topic:</p>
+              {topics.map(({ slug }) => {
+                return (
+                  <Link to={slug}>
+                    <p onClick={() => setTopicFilter(slug)}>{slug}</p>
+                  </Link>
+                );
+              })}
+            </section>
           </div>
         ) : (
           <div></div>
