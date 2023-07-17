@@ -3,7 +3,7 @@ import Title from "./Title";
 
 function HeaderContainer() {
   return (
-    <header>
+    <header className="header-container">
       <Title />
       <DropDown />
     </header>
