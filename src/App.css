@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+/* Container Area */
+
 .App-Container {
   border: solid white;
   height: 100vh;
@@ -28,4 +30,29 @@
 .main-container {
   border: solid blue;
   grid-area: main;
+  padding: 1rem;
+}
+
+/* Article Area */
+
+.article {
+  border: solid orange;
+  padding: 1rem;
+}
+
+.article-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+img {
+  width: 80%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.vote-comment-section {
+  display: flex;
+  justify-content: space-around;
 }
