@@ -10,7 +10,7 @@ function MainContainer(params) {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
   useEffect(() => {
-    getArticles(currentPageNumber).then((articleData) => {
+    getArticles(currentPageNumber, topics).then((articleData) => {
       setArticles(articleData);
     });
   }, [currentPageNumber, topics]);
