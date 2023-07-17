@@ -17,11 +17,9 @@ function MainContainer(params) {
   }, [currentPageNumber]);
 
   const handlePageChange = (binary) => {
-    if (binary) {
-      setCurrentPageNumber(currentPageNumber + 1);
-    } else {
-      setCurrentPageNumber(currentPageNumber - 1);
-    }
+    binary
+      ? setCurrentPageNumber(currentPageNumber + 1)
+      : setCurrentPageNumber(currentPageNumber - 1);
   };
 
   return (
@@ -30,7 +28,10 @@ function MainContainer(params) {
         <Route path="/" element={<Article articles={articles} />} />
       </Routes>
       <section>
-        <PageButtons handlePageChange={handlePageChange} />
+        <PageButtons
+          handlePageChange={handlePageChange}
+          currentPageNumber={currentPageNumber}
+        />
       </section>
     </div>
   );
