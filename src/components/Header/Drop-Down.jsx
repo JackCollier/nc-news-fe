@@ -11,9 +11,9 @@ function DropDown(params) {
     setOpen(!open);
   };
 
-  const settopicFilter = (topic) => {
+  const setTopicFilter = (topic) => {
     const newParams = new URLSearchParams(searchParams);
-    newParams.set("topic", topic);
+    newParams.set("topics", topic);
     setSearchParams(newParams);
   };
 
@@ -30,7 +30,7 @@ function DropDown(params) {
             {topics.map(({ slug }) => {
               return (
                 <Link to={slug}>
-                  <p onClick={() => settopicFilter({ slug })}>{slug}</p>
+                  <p onClick={() => setTopicFilter(slug)}>{slug}</p>
                 </Link>
               );
             })}
