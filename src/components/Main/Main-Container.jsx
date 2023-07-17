@@ -27,7 +27,7 @@ function MainContainer(params) {
       <Routes>
         <Route path="/" element={<Article articles={articles} />} />
       </Routes>
-      <section>
+      <section className="page-number-container">
         <PageButtons
           handlePageChange={handlePageChange}
           currentPageNumber={currentPageNumber}
