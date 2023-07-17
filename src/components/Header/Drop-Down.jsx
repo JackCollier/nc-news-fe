@@ -12,9 +12,17 @@ function DropDown(params) {
   };
 
   const setTopicFilter = (topic) => {
-    const newParams = new URLSearchParams(searchParams);
-    newParams.set("topics", topic);
-    setSearchParams(newParams);
+    setSearchParams((newParams) => {
+      newParams.set("topics", topic);
+      return newParams;
+    });
+  };
+
+  const setSortFilter = (sortby) => {
+    setSearchParams((newParams) => {
+      newParams.set("sortby", sortby);
+      return newParams;
+    });
   };
 
   useEffect(() => {
@@ -29,12 +37,18 @@ function DropDown(params) {
             <section className="filter-topic-section">
               <p>Filter by Topic:</p>
               {topics.map(({ slug }) => {
-                return (
-                  <Link to={slug}>
-                    <p onClick={() => setTopicFilter(slug)}>{slug}</p>
-                  </Link>
-                );
+                return <p onClick={() => setTopicFilter(slug)}>{slug}</p>;
               })}
+            </section>
+            <section className="sortby-section">
+              <p>Sort by:</p>
+              <ul>
+                <li onClick={() => setSortFilter("created_at")}>Date</li>
+                <li onClick={() => setSortFilter("comment_count")}>
+                  Comment Count
+                </li>
+                <li onClick={() => setSortFilter("votes")}>Votes</li>
+              </ul>
             </section>
           </div>
         ) : (
