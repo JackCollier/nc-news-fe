@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
 import { getTopics } from "../utils/Api-Util";
-import { Link } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 function DropDown(params) {
   const [open, setOpen] = useState(false);
   const [topics, setTopics] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleOpen = () => {
     setOpen(!open);
+  };
+
+  const settopicFilter = (topic) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("topic", topic);
+    setSearchParams(newParams);
   };
 
   useEffect(() => {
@@ -22,8 +29,8 @@ function DropDown(params) {
             <p>Filter by Topic:</p>
             {topics.map(({ slug }) => {
               return (
-                <Link>
-                  <p>{slug}</p>
+                <Link to={slug}>
+                  <p onClick={() => settopicFilter({ slug })}>{slug}</p>
                 </Link>
               );
             })}
