@@ -9,3 +9,5 @@ function HeaderContainer() {
     </header>
   );
 }
+
+export default HeaderContainer;
