@@ -3,7 +3,7 @@ function Article({ articles }) {
     <>
       {articles.map((article) => {
         return (
-          <dir clasName="article">
+          <div className="article">
             <section className="article-header">
               <h2>{article.title}</h2>
               <p>{article.author}</p>
@@ -13,7 +13,7 @@ function Article({ articles }) {
               <p>Votes: {article.votes}</p>
               <p>Comments: {article.comment_count}</p>
             </section>
-          </dir>
+          </div>
         );
       })}
     </>
