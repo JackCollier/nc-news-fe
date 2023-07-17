@@ -3,7 +3,7 @@ function Article({ articles }) {
     <>
       {articles.map((article) => {
         return (
-          <div className="article">
+          <div className="article" key={article.article_id}>
             <section className="article-header">
               <h2>{article.title}</h2>
               <p>{article.author}</p>
