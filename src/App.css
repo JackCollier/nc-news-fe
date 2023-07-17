@@ -108,3 +108,7 @@ img {
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+.sortby-section {
+  border: solid green;
+}
