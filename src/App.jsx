@@ -9,7 +9,6 @@ function App() {
       <HeaderContainer />
       <Routes>
         <Route path="/" element={<MainContainer />} />
-        <Route path="/:topics" element={<MainContainer />} />
       </Routes>
     </div>
   );
