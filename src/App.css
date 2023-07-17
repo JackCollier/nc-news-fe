@@ -30,6 +30,9 @@
   border: solid blue;
   grid-area: main;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Article Area */
@@ -39,7 +42,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
   gap: 1rem;
 }
@@ -61,4 +64,18 @@ img {
 .vote-comment-section {
   display: flex;
   justify-content: space-around;
+}
+
+/* page buttons */
+
+.page-number-container {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.fa-caret-square-o-left:hover,
+.fa-caret-square-o-right:hover {
+  cursor: pointer;
 }
