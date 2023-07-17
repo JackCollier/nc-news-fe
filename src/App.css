@@ -7,7 +7,6 @@
 /* Container Area */
 
 .App-Container {
-  border: solid white;
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -38,6 +37,11 @@
 .article {
   border: solid orange;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 1rem;
 }
 
 .article-header {
@@ -50,6 +54,8 @@ img {
   width: 80%;
   height: auto;
   border-radius: 1rem;
+  max-width: 600px;
+  align-self: center;
 }
 
 .vote-comment-section {
