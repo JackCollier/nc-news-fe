@@ -3,6 +3,11 @@ import { patchArticleVotes } from "../utils/Api-Util";
 
 function Vote({ article }) {
   const [articleVote, setArticleVote] = useState(article.votes);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsButtonClicked(true);
+  };
 
   const articleVoteFunc = (id, vote) => {
     setArticleVote((prevNum) => prevNum + vote);
@@ -17,17 +22,25 @@ function Vote({ article }) {
 
   return (
     <div className="vote-section">
-      <i
+      <button
         className="fa fa-arrow-up hover-item"
         aria-hidden="true"
-        onClick={() => articleVoteFunc(article.article_id, 1)}
-      ></i>
+        onClick={() => {
+          handleClick();
+          articleVoteFunc(article.article_id, 1);
+        }}
+        disabled={isButtonClicked}
+      ></button>
       <p>Votes: {articleVote}</p>
-      <i
+      <button
         className="fa fa-arrow-down hover-item"
         aria-hidden="true"
-        onClick={() => articleVoteFunc(article.article_id, -1)}
-      ></i>
+        onClick={() => {
+          handleClick();
+          articleVoteFunc(article.article_id, -1);
+        }}
+        disabled={isButtonClicked}
+      ></button>
     </div>
   );
 }
