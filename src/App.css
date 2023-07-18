@@ -85,6 +85,11 @@ img {
   justify-content: space-around;
 }
 
+.vote-section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 /* page buttons */
 
 .page-number-container {
