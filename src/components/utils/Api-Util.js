@@ -4,12 +4,13 @@ const newsApi = axios.create({
   baseURL: "https://nc-news-kwsf.onrender.com/api",
 });
 
-export const getArticles = (pageNum, topics, sortby) => {
+export const getArticles = (pageNum, topics, sortby, orderBy) => {
   const params = {
     limit: 5,
     page: pageNum,
     topic: topics,
     sort_by: sortby,
+    order: orderBy,
   };
 
   return newsApi.get("/articles", { params }).then((res) => {
