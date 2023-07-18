@@ -3,7 +3,9 @@ import { patchArticleVotes } from "../utils/Api-Util";
 
 function Vote({ article }) {
   const [articleVote, setArticleVote] = useState(article.votes);
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [isButtonClicked, setIsButtonClicked] = useState(
+    localStorage.getItem(`vote_${article.article_id}`) === "true"
+  );
   const [patchSuccess, setPatchSuccess] = useState(true);
 
   const handleClick = () => {
@@ -21,6 +23,10 @@ function Vote({ article }) {
         setPatchSuccess(false);
       });
   };
+
+  useEffect(() => {
+    localStorage.setItem(`vote_${article.article_id}`, isButtonClicked);
+  }, [isButtonClicked, article.article_id]);
 
   return (
     <div className="vote-section">
