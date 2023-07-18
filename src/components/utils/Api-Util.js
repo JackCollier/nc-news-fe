@@ -35,3 +35,9 @@ export const getCommentsByID = (id) => {
     return res.data.comments;
   });
 };
+
+export const patchArticleVotes = (id) => {
+  return newsApi.patch(`/articles/${id}`).then((res) => {
+    return res.data;
+  });
+};
