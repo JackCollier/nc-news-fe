@@ -1,17 +1,21 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getArticleById } from "../utils/Api-Util";
+import { getArticleById, getCommentsByID } from "../utils/Api-Util";
 import Loading from "../Loading";
 
 function ArticleById(params) {
   const { articleid } = useParams();
   const [individualArticle, setIndividualArticle] = useState({});
+  const [articleComments, setArticleComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getArticleById(articleid).then((article) => {
       setIndividualArticle(article);
       setIsLoading(false);
+    });
+    getCommentsByID(articleid).then((comments) => {
+      setArticleComments(comments);
     });
   }, []);
 
