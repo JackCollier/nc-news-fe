@@ -44,17 +44,37 @@ function DropDown(params) {
             <section className="filter-topic-section">
               <h4>Filter by Topic:</h4>
               {topics.map(({ slug }) => {
-                return <p onClick={() => setTopicFilter(slug)}>{slug}</p>;
+                return (
+                  <p
+                    className="hover-item"
+                    onClick={() => setTopicFilter(slug)}
+                  >
+                    {slug}
+                  </p>
+                );
               })}
             </section>
             <section className="sortby-section">
               <h4>Sort by:</h4>
               <ul>
-                <li onClick={() => setSortFilter("created_at")}>Date</li>
-                <li onClick={() => setSortFilter("comment_count")}>
+                <li
+                  className="hover-item"
+                  onClick={() => setSortFilter("created_at")}
+                >
+                  Date
+                </li>
+                <li
+                  className="hover-item"
+                  onClick={() => setSortFilter("comment_count")}
+                >
                   Comment Count
                 </li>
-                <li onClick={() => setSortFilter("votes")}>Votes</li>
+                <li
+                  className="hover-item"
+                  onClick={() => setSortFilter("votes")}
+                >
+                  Votes
+                </li>
               </ul>
             </section>
             <section className="order-section">
