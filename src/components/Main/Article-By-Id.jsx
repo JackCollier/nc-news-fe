@@ -4,7 +4,7 @@ import { getArticleById } from "../utils/Api-Util";
 
 function ArticleById(params) {
   const { articleid } = useParams();
-  const [individualArticle, setIndividualArticle] = useState([]);
+  const [individualArticle, setIndividualArticle] = useState({});
 
   useEffect(() => {
     getArticleById(articleid).then((article) => {
