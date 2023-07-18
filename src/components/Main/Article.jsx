@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { patchArticleVotes } from "../utils/Api-Util";
+import Vote from "./Vote";
 
 function Article({ articles }) {
   const [articleVote, setArticleVote] = useState();
@@ -37,19 +38,7 @@ function Article({ articles }) {
               className="hover-item"
             />
             <section className="vote-comment-section">
-              <div className="vote-section">
-                <i
-                  className="fa fa-arrow-up hover-item"
-                  aria-hidden="true"
-                  onClick={() => articleVoteFunc(article.article_id, 1)}
-                ></i>
-                <p>Votes: {article.votes}</p>
-                <i
-                  className="fa fa-arrow-down hover-item"
-                  aria-hidden="true"
-                  onClick={() => articleVoteFunc(article.article_id, -1)}
-                ></i>
-              </div>
+              <Vote article={article} />
               <p>Comments: {article.comment_count}</p>
             </section>
           </div>
