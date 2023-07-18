@@ -57,7 +57,7 @@ li {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 620px;
   margin: 0 auto;
   gap: 1rem;
 }
