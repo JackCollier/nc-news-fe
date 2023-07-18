@@ -1,17 +1,21 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getArticleById } from "../utils/Api-Util";
+import { getArticleById, getCommentsByID } from "../utils/Api-Util";
 import Loading from "../Loading";
 
 function ArticleById(params) {
   const { articleid } = useParams();
   const [individualArticle, setIndividualArticle] = useState({});
+  const [articleComments, setArticleComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getArticleById(articleid).then((article) => {
       setIndividualArticle(article);
       setIsLoading(false);
+    });
+    getCommentsByID(articleid).then((comments) => {
+      setArticleComments(comments);
     });
   }, []);
 
@@ -42,6 +46,20 @@ function ArticleById(params) {
           <p>Votes: {votes}</p>
           <p>comments: {comment_count}</p>
         </section>
+        <div className="comment-section">
+          {articleComments.map(({ author, body, created_at, votes }) => {
+            return (
+              <div className="comment">
+                <section className="article-header">
+                  <h3>{author}</h3>
+                  <p>{created_at}</p>
+                </section>
+                <p className="comment-body">{body}</p>
+                <p className="comment-vote">Votes: {votes}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
