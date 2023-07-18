@@ -25,6 +25,13 @@ function DropDown(params) {
     });
   };
 
+  const setOrderFilter = (order) => {
+    setSearchParams((newParams) => {
+      newParams.set("order", order);
+      return newParams;
+    });
+  };
+
   useEffect(() => {
     getTopics().then((data) => setTopics(data));
   }, [open]);
@@ -49,6 +56,11 @@ function DropDown(params) {
                 </li>
                 <li onClick={() => setSortFilter("votes")}>Votes</li>
               </ul>
+            </section>
+            <section className="order-section">
+              <p>Order by:</p>
+              <button onClick={() => setOrderFilter("ASC")}>Ascending</button>
+              <button onClick={() => setOrderFilter("DESC")}>Descending</button>
             </section>
           </div>
         ) : (
