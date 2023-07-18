@@ -14,7 +14,6 @@ function MainContainer(params) {
     const topicParam = searchParams.get("topics");
     const sortByParam = searchParams.get("sortby");
     const sortByOrder = searchParams.get("order");
-    console.log(sortByOrder);
     getArticles(currentPageNumber, topicParam, sortByParam, sortByOrder).then(
       (articleData) => {
         setArticles(articleData);
