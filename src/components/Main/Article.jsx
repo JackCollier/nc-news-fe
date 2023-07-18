@@ -27,7 +27,11 @@ function Article({ articles }) {
               className="hover-item"
             />
             <section className="vote-comment-section">
-              <p>Votes: {article.votes}</p>
+              <div className="vote-section">
+                <i class="fa fa-arrow-up hover-item" aria-hidden="true"></i>
+                <p>Votes: {article.votes}</p>
+                <i class="fa fa-arrow-down hover-item" aria-hidden="true"></i>
+              </div>
               <p>Comments: {article.comment_count}</p>
             </section>
           </div>
