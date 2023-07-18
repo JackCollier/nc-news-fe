@@ -42,13 +42,13 @@ function DropDown(params) {
         {open ? (
           <div className="dropdown-box">
             <section className="filter-topic-section">
-              <p>Filter by Topic:</p>
+              <h4>Filter by Topic:</h4>
               {topics.map(({ slug }) => {
                 return <p onClick={() => setTopicFilter(slug)}>{slug}</p>;
               })}
             </section>
             <section className="sortby-section">
-              <p>Sort by:</p>
+              <h4>Sort by:</h4>
               <ul>
                 <li onClick={() => setSortFilter("created_at")}>Date</li>
                 <li onClick={() => setSortFilter("comment_count")}>
@@ -58,7 +58,7 @@ function DropDown(params) {
               </ul>
             </section>
             <section className="order-section">
-              <p>Order by:</p>
+              <h4>Order by:</h4>
               <button onClick={() => setOrderFilter("ASC")}>Ascending</button>
               <button onClick={() => setOrderFilter("DESC")}>Descending</button>
             </section>
