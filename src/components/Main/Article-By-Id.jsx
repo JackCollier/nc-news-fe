@@ -46,6 +46,20 @@ function ArticleById(params) {
           <p>Votes: {votes}</p>
           <p>comments: {comment_count}</p>
         </section>
+        <div className="comment-section">
+          {articleComments.map(({ author, body, created_at, votes }) => {
+            return (
+              <div className="comment">
+                <section className="article-header">
+                  <h3>{author}</h3>
+                  <p>{created_at}</p>
+                </section>
+                <p className="comment-body">{body}</p>
+                <p className="comment-vote">Votes: {votes}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
