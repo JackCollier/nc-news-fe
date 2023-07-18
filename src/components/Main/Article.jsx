@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { patchArticleVotes } from "../utils/Api-Util";
 
 function Article({ articles }) {
+  const [articleVote, setArticleVote] = useState();
+
+  const articleVoteFunc = (id, vote) => {
+    patchArticleVotes(id, vote).then((res) => {
+      console.log(res);
+    });
+  };
+
   const navigate = useNavigate();
   return (
     <>
@@ -28,9 +38,17 @@ function Article({ articles }) {
             />
             <section className="vote-comment-section">
               <div className="vote-section">
-                <i class="fa fa-arrow-up hover-item" aria-hidden="true"></i>
+                <i
+                  className="fa fa-arrow-up hover-item"
+                  aria-hidden="true"
+                  onClick={() => articleVoteFunc(article.article_id, 1)}
+                ></i>
                 <p>Votes: {article.votes}</p>
-                <i class="fa fa-arrow-down hover-item" aria-hidden="true"></i>
+                <i
+                  className="fa fa-arrow-down hover-item"
+                  aria-hidden="true"
+                  onClick={() => articleVoteFunc(article.article_id, -1)}
+                ></i>
               </div>
               <p>Comments: {article.comment_count}</p>
             </section>
