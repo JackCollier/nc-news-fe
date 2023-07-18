@@ -14,6 +14,11 @@ li {
   list-style: none;
 }
 
+.hover-item:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /* Container Area */
 
 .App-Container {
@@ -93,6 +98,7 @@ img {
 .fa-bars {
   font-size: 2rem;
   position: relative;
+  cursor: pointer;
 }
 
 /* dropdown 8 */
@@ -105,22 +111,15 @@ img {
   font-size: 2rem;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   padding: 0.5rem;
+  cursor: auto;
 }
 
 .filter-topic-section {
   border: solid red;
 }
 
-.filter-topic-section > p {
-  cursor: pointer;
-}
-
 .sortby-section {
   border: solid green;
-}
-
-.sortby-section > ul {
-  cursor: pointer;
 }
 
 .order-section {
