@@ -36,8 +36,8 @@ export const getCommentsByID = (id) => {
   });
 };
 
-export const patchArticleVotes = (id) => {
-  return newsApi.patch(`/articles/${id}`).then((res) => {
+export const patchArticleVotes = (id, vote) => {
+  return newsApi.patch(`/articles/${id}`, { inc_votes: vote }).then((res) => {
     return res.data;
   });
 };
