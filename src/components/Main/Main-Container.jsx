@@ -13,7 +13,9 @@ function MainContainer(params) {
   useEffect(() => {
     const topicParam = searchParams.get("topics");
     const sortByParam = searchParams.get("sortby");
-    getArticles(currentPageNumber, topicParam, sortByParam).then(
+    const sortByOrder = searchParams.get("order");
+    console.log(sortByOrder);
+    getArticles(currentPageNumber, topicParam, sortByParam, sortByOrder).then(
       (articleData) => {
         setArticles(articleData);
       }
