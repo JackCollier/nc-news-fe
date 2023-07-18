@@ -4,6 +4,21 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+
+.hover-item:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /* Container Area */
 
 .App-Container {
@@ -30,6 +45,9 @@
   border: solid blue;
   grid-area: main;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Article Area */
@@ -39,7 +57,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
   gap: 1rem;
 }
@@ -61,4 +79,54 @@ img {
 .vote-comment-section {
   display: flex;
   justify-content: space-around;
+}
+
+/* page buttons */
+
+.page-number-container {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.fa-caret-square-o-left:hover,
+.fa-caret-square-o-right:hover {
+  cursor: pointer;
+}
+
+.fa-bars {
+  font-size: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+/* dropdown 8 */
+
+.dropdown-box {
+  position: absolute;
+  right: 0px;
+  background-color: #242424c5;
+  min-width: 300px;
+  font-size: 2rem;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  padding: 0.5rem;
+  cursor: auto;
+}
+
+.filter-topic-section {
+  border: solid red;
+}
+
+.sortby-section {
+  border: solid green;
+}
+
+.order-section {
+  border: solid pink;
+}
+
+.order-section > button {
+  font-size: 1rem;
+  padding: 0.2rem;
 }
