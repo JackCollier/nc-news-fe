@@ -25,17 +25,19 @@ function ArticleById(params) {
 
   return (
     <div className="main-container">
-      <section className="article">
-        <h4>{topic}</h4>
-        <h4>{author}</h4>
-
+      <div className="article">
+        <section className="article-header">
+          <h3>{topic}</h3>
+          <h4>{author}</h4>
+        </section>
         <h2>{title}</h2>
-
         <img src={article_img_url} alt="" />
-
-        <p>Votes: {votes}</p>
-        <p>comments: {comment_count}</p>
-      </section>
+        <p>{body}</p>
+        <section className="vote-comment-section">
+          <p>Votes: {votes}</p>
+          <p>comments: {comment_count}</p>
+        </section>
+      </div>
     </div>
   );
 }
