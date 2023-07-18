@@ -1,5 +1,11 @@
+import { Link } from "react-router-dom";
+
 function Title(params) {
-  return <h1>NC-NEWS</h1>;
+  return (
+    <Link to="/">
+      <h1>NC-NEWS</h1>{" "}
+    </Link>
+  );
 }
 
 export default Title;

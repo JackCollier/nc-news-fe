@@ -4,11 +4,13 @@ import { getArticles } from "../utils/Api-Util";
 import { useParams } from "react-router-dom";
 import PageButtons from "./PageButtons";
 import { useSearchParams, Link } from "react-router-dom";
+import Loading from "../Loading";
 
 function MainContainer(params) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [articles, setArticles] = useState([]);
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const topicParam = searchParams.get("topics");
@@ -17,6 +19,7 @@ function MainContainer(params) {
     getArticles(currentPageNumber, topicParam, sortByParam, sortByOrder).then(
       (articleData) => {
         setArticles(articleData);
+        setIsLoading(false);
       }
     );
   }, [currentPageNumber, searchParams]);
@@ -26,6 +29,8 @@ function MainContainer(params) {
       ? setCurrentPageNumber(currentPageNumber + 1)
       : setCurrentPageNumber(currentPageNumber - 1);
   };
+
+  if (isLoading) return <Loading />;
 
   return (
     <div className="main-container">
