@@ -9,6 +9,7 @@ function Article({ articles }) {
           <div className="article" key={article.article_id}>
             <section className="article-header">
               <h2
+                className="hover-item"
                 onClick={() => {
                   navigate(`/articles/${article.article_id}`);
                 }}
@@ -17,7 +18,14 @@ function Article({ articles }) {
               </h2>
               <p>{article.author}</p>
             </section>
-            <img src={article.article_img_url} alt="" />
+            <img
+              onClick={() => {
+                navigate(`/articles/${article.article_id}`);
+              }}
+              src={article.article_img_url}
+              alt={article.title}
+              className="hover-item"
+            />
             <section className="vote-comment-section">
               <p>Votes: {article.votes}</p>
               <p>Comments: {article.comment_count}</p>
