@@ -34,7 +34,7 @@ function DropDown(params) {
 
   useEffect(() => {
     getTopics().then((data) => setTopics(data));
-  }, [open]);
+  }, [topics]);
 
   return (
     <>
@@ -48,6 +48,7 @@ function DropDown(params) {
                   <p
                     className="hover-item"
                     onClick={() => setTopicFilter(slug)}
+                    key={slug}
                   >
                     {slug}
                   </p>
