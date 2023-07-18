@@ -10,7 +10,7 @@ function Article({ articles }) {
             <section className="article-header">
               <h2
                 onClick={() => {
-                  navigate(`/articles/:${article.article_id}`);
+                  navigate(`/articles/${article.article_id}`);
                 }}
               >
                 {article.title}
