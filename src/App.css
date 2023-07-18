@@ -19,6 +19,10 @@ li {
   cursor: pointer;
 }
 
+.loading-text {
+  font-size: 2rem;
+}
+
 /* Container Area */
 
 .App-Container {
