@@ -1,14 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticleById } from "../utils/Api-Util";
+import Loading from "../Loading";
 
 function ArticleById(params) {
   const { articleid } = useParams();
   const [individualArticle, setIndividualArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getArticleById(articleid).then((article) => {
       setIndividualArticle(article);
+      setIsLoading(false);
     });
   }, []);
 
@@ -22,6 +25,8 @@ function ArticleById(params) {
     article_img_url,
     comment_count,
   } = individualArticle;
+
+  if (isLoading) return <Loading />;
 
   return (
     <div className="main-container">
