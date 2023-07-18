@@ -25,8 +25,7 @@ export const getTopics = () => {
 };
 
 export const getArticleById = (id) => {
-  console.log(id);
   return newsApi.get(`/articles/${id}`).then((res) => {
-    return res.data.article.article;
+    return res.data.article;
   });
 };
