@@ -4,6 +4,7 @@ import { patchArticleVotes } from "../utils/Api-Util";
 function Vote({ article }) {
   const [articleVote, setArticleVote] = useState(article.votes);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [patchSuccess, setPatchSuccess] = useState(true);
 
   const handleClick = () => {
     setIsButtonClicked(true);
@@ -17,6 +18,7 @@ function Vote({ article }) {
       })
       .catch((err) => {
         setArticleVote((prevNum) => prevNum - vote);
+        setPatchSuccess(false);
       });
   };
 
@@ -41,6 +43,7 @@ function Vote({ article }) {
         }}
         disabled={isButtonClicked}
       ></button>
+      {!patchSuccess ? <p>Vote failed</p> : null}
     </div>
   );
 }
