@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 import { getArticleById, getCommentsByID } from "../utils/Api-Util";
 import Loading from "../Loading";
 import Vote from "./Vote";
+import PostComment from "./Post-Comment";
 
 function ArticleById(params) {
   const { articleid } = useParams();
   const [individualArticle, setIndividualArticle] = useState({});
   const [articleComments, setArticleComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [comment, setComment] = useState({});
 
   useEffect(() => {
     getArticleById(articleid).then((article) => {
@@ -47,6 +49,9 @@ function ArticleById(params) {
           <Vote article={individualArticle} />
           <p>comments: {comment_count}</p>
         </section>
+        <div className="post-comment-section">
+          <PostComment setComment={setComment} />
+        </div>
         <div className="comment-section">
           {articleComments.map(({ author, body, created_at, votes }) => {
             return (
