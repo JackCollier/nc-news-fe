@@ -1,3 +1,4 @@
+/* global */
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +29,13 @@ textarea {
   font-size: 2rem;
 }
 
+img {
+  width: 80%;
+  height: auto;
+  border-radius: 1rem;
+  max-width: 600px;
+  align-self: center;
+}
 /* Container Area */
 
 .App-Container {
@@ -75,14 +83,6 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-img {
-  width: 80%;
-  height: auto;
-  border-radius: 1rem;
-  max-width: 600px;
-  align-self: center;
 }
 
 .vote-comment-section {
