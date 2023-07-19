@@ -160,3 +160,9 @@ img {
   color: orange;
   border: solid orange;
 }
+
+/* post comment */
+
+.post-button {
+  padding: 0.5rem;
+}
