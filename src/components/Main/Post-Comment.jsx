@@ -1,12 +1,29 @@
 import { useState } from "react";
+import { postComment } from "../utils/Api-Util";
 
-function PostComment({ setComment }) {
+function PostComment({ articleid }) {
+  const [comment, setComment] = useState({});
+  const [commentSuccess, setCommentSuccess] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    postComment(articleid, comment)
+      .then((res) => {
+        setCommentSuccess("posted");
+      })
+      .catch((err) => {
+        setCommentSuccess("error");
+      });
+    console.log(articleid, comment);
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      {commentSuccess === "posted" ? (
+        <p>Comment succesfully posted</p>
+      ) : commentSuccess === "error" ? (
+        <p>Post failed</p>
+      ) : null}
       <textarea
         name="body"
         id="body"
