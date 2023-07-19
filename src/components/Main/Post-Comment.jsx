@@ -14,7 +14,6 @@ function PostComment({ articleid }) {
       .catch((err) => {
         setCommentSuccess("error");
       });
-    console.log(articleid, comment);
   };
 
   return (
