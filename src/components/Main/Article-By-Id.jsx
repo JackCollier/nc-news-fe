@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticleById, getCommentsByID } from "../utils/Api-Util";
 import Loading from "../Loading";
+import Vote from "./Vote";
 
 function ArticleById(params) {
   const { articleid } = useParams();
@@ -43,7 +44,7 @@ function ArticleById(params) {
         <img src={article_img_url} alt="" />
         <p>{body}</p>
         <section className="vote-comment-section">
-          <p>Votes: {votes}</p>
+          <Vote article={individualArticle} />
           <p>comments: {comment_count}</p>
         </section>
         <div className="comment-section">
