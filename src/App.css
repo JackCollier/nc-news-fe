@@ -26,10 +26,10 @@ li {
 /* Container Area */
 
 .App-Container {
-  height: 100vh;
+  /* height: 100vh; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 0.1fr 1fr;
+  grid-template-rows: 0.025fr 1fr;
   grid-template-areas:
     "header header header header"
     "main main main main";
@@ -149,4 +149,9 @@ img {
 .comment-body,
 .comment-vote {
   padding: 1rem;
+}
+
+.active {
+  color: orange;
+  border: solid orange;
 }
