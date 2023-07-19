@@ -4,7 +4,7 @@ import { patchArticleVotes } from "../utils/Api-Util";
 function Vote({ article }) {
   const [articleVote, setArticleVote] = useState(article.votes);
   const [voteStatus, setVoteStatus] = useState(
-    localStorage.getItem(`vote_${article.article_id}`) || null
+    parseInt(localStorage.getItem(`vote_${article.article_id}`)) || null
   );
   const [patchSuccess, setPatchSuccess] = useState(true);
 
