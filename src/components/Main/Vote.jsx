@@ -3,53 +3,72 @@ import { patchArticleVotes } from "../utils/Api-Util";
 
 function Vote({ article }) {
   const [articleVote, setArticleVote] = useState(article.votes);
-  const [isButtonClicked, setIsButtonClicked] = useState(
-    localStorage.getItem(`vote_${article.article_id}`) === "true"
+  const [voteStatus, setVoteStatus] = useState(
+    localStorage.getItem(`vote_${article.article_id}`) || null
   );
   const [patchSuccess, setPatchSuccess] = useState(true);
 
-  const handleClick = () => {
-    setIsButtonClicked(true);
+  const handleVote = (vote) => {
+    if (voteStatus === vote) {
+      removeVote();
+    } else {
+      addVote(vote);
+    }
   };
 
-  const articleVoteFunc = (id, vote) => {
+  const addVote = (vote) => {
     setArticleVote((prevNum) => prevNum + vote);
-    patchArticleVotes(id, vote)
-      .then((res) => {
-        return;
-      })
+    setVoteStatus(vote);
+    localStorage.setItem(`vote_${article.article_id}`, vote);
+    patchArticleVotes(article.article_id, vote)
+      .then((res) => {})
       .catch((err) => {
         setArticleVote((prevNum) => prevNum - vote);
+        setVoteStatus(null);
+        localStorage.removeItem(`vote_${article.article_id}`);
+        setPatchSuccess(false);
+      });
+  };
+
+  const removeVote = () => {
+    const vote = voteStatus;
+    setArticleVote((prevNum) => prevNum - vote);
+    setVoteStatus(null);
+    localStorage.removeItem(`vote_${article.article_id}`);
+    patchArticleVotes(article.article_id, -vote)
+      .then((res) => {})
+      .catch((err) => {
+        setArticleVote((prevNum) => prevNum + vote);
+        setVoteStatus(vote);
+        localStorage.setItem(`vote_${article.article_id}`, vote);
         setPatchSuccess(false);
       });
   };
 
   useEffect(() => {
-    localStorage.setItem(`vote_${article.article_id}`, isButtonClicked);
-  }, [isButtonClicked, article.article_id]);
+    localStorage.setItem(`vote_${article.article_id}`, voteStatus || "");
+  }, [article.article_id, voteStatus]);
 
   return (
     <div className="vote-section">
       <button
-        className="fa fa-arrow-up hover-item"
+        className={`fa fa-arrow-up hover-item ${
+          voteStatus === 1 ? "active" : ""
+        }`}
         aria-hidden="true"
-        onClick={() => {
-          handleClick();
-          articleVoteFunc(article.article_id, 1);
-        }}
-        disabled={isButtonClicked}
+        onClick={() => handleVote(1)}
+        disabled={voteStatus === -1}
       ></button>
       <p>Votes: {articleVote}</p>
       <button
-        className="fa fa-arrow-down hover-item"
+        className={`fa fa-arrow-down hover-item ${
+          voteStatus === -1 ? "active" : ""
+        }`}
         aria-hidden="true"
-        onClick={() => {
-          handleClick();
-          articleVoteFunc(article.article_id, -1);
-        }}
-        disabled={isButtonClicked}
+        onClick={() => handleVote(-1)}
+        disabled={voteStatus === 1}
       ></button>
-      {!patchSuccess ? <p>Vote failed</p> : null}
+      {!patchSuccess && <p>Vote failed</p>}
     </div>
   );
 }
