@@ -10,7 +10,6 @@ function ArticleById(params) {
   const [individualArticle, setIndividualArticle] = useState({});
   const [articleComments, setArticleComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [comment, setComment] = useState({});
 
   useEffect(() => {
     getArticleById(articleid).then((article) => {
@@ -20,7 +19,7 @@ function ArticleById(params) {
     getCommentsByID(articleid).then((comments) => {
       setArticleComments(comments);
     });
-  }, []);
+  }, [articleComments]);
 
   const {
     title,
@@ -50,7 +49,7 @@ function ArticleById(params) {
           <p>comments: {comment_count}</p>
         </section>
         <div className="post-comment-section">
-          <PostComment setComment={setComment} />
+          <PostComment articleid={articleid} />
         </div>
         <div className="comment-section">
           {articleComments.map(({ author, body, created_at, votes }) => {
