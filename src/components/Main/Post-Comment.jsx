@@ -32,7 +32,7 @@ function PostComment({ articleid }) {
           setComment(event.target.value);
         }}
       ></textarea>
-      <button>Post Comment</button>
+      <button className="post-button">Post Comment</button>
     </form>
   );
 }
