@@ -2,7 +2,7 @@ import { useState } from "react";
 import { postComment } from "../utils/Api-Util";
 
 function PostComment({ articleid }) {
-  const [comment, setComment] = useState({});
+  const [comment, setComment] = useState();
   const [commentSuccess, setCommentSuccess] = useState(null);
 
   const handleSubmit = (e) => {
@@ -10,6 +10,7 @@ function PostComment({ articleid }) {
     postComment(articleid, comment)
       .then((res) => {
         setCommentSuccess("posted");
+        setComment("");
       })
       .catch((err) => {
         setCommentSuccess("error");
@@ -31,6 +32,8 @@ function PostComment({ articleid }) {
         onChange={(event) => {
           setComment(event.target.value);
         }}
+        value={comment}
+        placeholder="Add your comment here..."
       ></textarea>
       <button className="post-button">Post Comment</button>
     </form>
