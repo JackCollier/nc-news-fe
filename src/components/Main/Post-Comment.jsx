@@ -9,7 +9,7 @@ function PostComment({ articleid }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setButtonLock(true);
-    if (comment === undefined) {
+    if (comment === undefined || !comment.length) {
       setCommentSuccess("empty");
       setButtonLock(false);
     } else {
