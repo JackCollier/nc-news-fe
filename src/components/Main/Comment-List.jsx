@@ -5,7 +5,7 @@ import { deleteComment } from "../utils/Api-Util";
 function CommentList({ articleComments }) {
   const { user, setUser } = useContext(UserContext);
   const [buttonLock, setButtonLock] = useState(false);
-  const [deleteFail, setDeleteFail] = useState(false);
+  const [deleteFailId, setDeleteFailId] = useState(null);
 
   const handleDelete = (id) => {
     setButtonLock(true);
@@ -15,12 +15,13 @@ function CommentList({ articleComments }) {
       })
       .catch((err) => {
         setButtonLock(false);
-        setDeleteFail(true);
+        setDeleteFailId(id);
       });
   };
 
   return articleComments.map(
     ({ author, body, created_at, votes, article_id, comment_id }) => {
+      const deletionFailed = deleteFailId === comment_id;
       return (
         <div className="comment" key={comment_id}>
           <section className="article-header">
@@ -38,7 +39,9 @@ function CommentList({ articleComments }) {
                 >
                   Delete Comment
                 </button>
-                {deleteFail ? <p>Deletion failed, please try again</p> : null}
+                {deletionFailed ? (
+                  <p>Deletion failed, please try again</p>
+                ) : null}
               </>
             ) : null}
           </div>
