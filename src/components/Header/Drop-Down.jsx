@@ -34,7 +34,7 @@ function DropDown(params) {
 
   useEffect(() => {
     getTopics().then((data) => setTopics(data));
-  }, [topics]);
+  }, []);
 
   return (
     <>
