@@ -1,4 +1,8 @@
+import { UserContext } from "../../contexts/User";
+
 function CommentList({ articleComments }) {
+  const { user, setUser } = useContext(UserContext);
+
   return articleComments.map(
     ({ author, body, created_at, votes, article_id, comment_id }) => {
       return (
