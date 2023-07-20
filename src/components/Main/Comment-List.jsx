@@ -1,15 +1,22 @@
-import { useContext, useEffect } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/User";
 import { deleteComment } from "../utils/Api-Util";
 
 function CommentList({ articleComments }) {
   const { user, setUser } = useContext(UserContext);
+  const [buttonLock, setButtonLock] = useState(false);
+  const [deleteFail, setDeleteFail] = useState(false);
 
   const handleDelete = (id) => {
-    console.log(id);
+    setButtonLock(true);
     deleteComment(id)
-      .then((res) => {})
-      .catch((err) => {});
+      .then((res) => {
+        setButtonLock(false);
+      })
+      .catch((err) => {
+        setButtonLock(false);
+        setDeleteFail(true);
+      });
   };
 
   return articleComments.map(
@@ -24,10 +31,14 @@ function CommentList({ articleComments }) {
           <div className="article-header">
             <p className="comment-vote">Votes: {votes}</p>
             {user.username === author ? (
-              <button onClick={() => handleDelete(comment_id)}>
+              <button
+                onClick={() => handleDelete(comment_id)}
+                disabled={buttonLock}
+              >
                 Delete Comment
               </button>
             ) : null}
+            {deleteFail ? <p>Deletion failed, please try again</p> : null}
           </div>
         </div>
       );
