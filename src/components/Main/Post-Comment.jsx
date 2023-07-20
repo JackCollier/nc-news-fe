@@ -7,14 +7,18 @@ function PostComment({ articleid }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postComment(articleid, comment)
-      .then((res) => {
-        setCommentSuccess("posted");
-        setComment("");
-      })
-      .catch((err) => {
-        setCommentSuccess("error");
-      });
+    if (!comment.length) {
+      setCommentSuccess("empty");
+    } else {
+      postComment(articleid, comment)
+        .then((res) => {
+          setCommentSuccess("posted");
+          setComment("");
+        })
+        .catch((err) => {
+          setCommentSuccess("error");
+        });
+    }
   };
 
   return (
@@ -23,6 +27,8 @@ function PostComment({ articleid }) {
         <p>Comment succesfully posted</p>
       ) : commentSuccess === "error" ? (
         <p>Post failed</p>
+      ) : commentSuccess === "empty" ? (
+        <p>Cannot submit empty post</p>
       ) : null}
       <textarea
         name="body"
