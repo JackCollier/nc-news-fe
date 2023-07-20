@@ -4,6 +4,7 @@ import { getArticleById, getCommentsByID } from "../utils/Api-Util";
 import Loading from "../Loading";
 import Vote from "./Vote";
 import PostComment from "./Post-Comment";
+import CommentList from "./Comment-List";
 
 function ArticleById(params) {
   const { articleid } = useParams();
@@ -52,18 +53,7 @@ function ArticleById(params) {
           <PostComment articleid={articleid} />
         </div>
         <div className="comment-section">
-          {articleComments.map(({ author, body, created_at, votes }) => {
-            return (
-              <div className="comment">
-                <section className="article-header">
-                  <h3>{author}</h3>
-                  <p>{created_at}</p>
-                </section>
-                <p className="comment-body">{body}</p>
-                <p className="comment-vote">Votes: {votes}</p>
-              </div>
-            );
-          })}
+          <CommentList articleComments={articleComments} />
         </div>
       </div>
     </div>
