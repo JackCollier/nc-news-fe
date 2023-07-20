@@ -31,14 +31,16 @@ function CommentList({ articleComments }) {
           <div className="article-header">
             <p className="comment-vote">Votes: {votes}</p>
             {user.username === author ? (
-              <button
-                onClick={() => handleDelete(comment_id)}
-                disabled={buttonLock}
-              >
-                Delete Comment
-              </button>
+              <>
+                <button
+                  onClick={() => handleDelete(comment_id)}
+                  disabled={buttonLock}
+                >
+                  Delete Comment
+                </button>
+                {deleteFail ? <p>Deletion failed, please try again</p> : null}
+              </>
             ) : null}
-            {deleteFail ? <p>Deletion failed, please try again</p> : null}
           </div>
         </div>
       );
