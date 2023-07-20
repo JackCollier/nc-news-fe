@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getArticleById, getCommentsByID } from "../utils/Api-Util";
 import Loading from "../Loading";
 import Vote from "./Vote";
+import PostComment from "./Post-Comment";
 
 function ArticleById(params) {
   const { articleid } = useParams();
@@ -18,7 +19,7 @@ function ArticleById(params) {
     getCommentsByID(articleid).then((comments) => {
       setArticleComments(comments);
     });
-  }, []);
+  }, [articleComments]);
 
   const {
     title,
@@ -47,6 +48,9 @@ function ArticleById(params) {
           <Vote article={individualArticle} />
           <p>comments: {comment_count}</p>
         </section>
+        <div className="post-comment-section">
+          <PostComment articleid={articleid} />
+        </div>
         <div className="comment-section">
           {articleComments.map(({ author, body, created_at, votes }) => {
             return (

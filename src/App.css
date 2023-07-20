@@ -1,3 +1,4 @@
+/* global */
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +15,11 @@ li {
   list-style: none;
 }
 
+textarea {
+  resize: none;
+  padding: 0.2rem;
+}
+
 .hover-item:hover {
   font-weight: bold;
   cursor: pointer;
@@ -23,6 +29,13 @@ li {
   font-size: 2rem;
 }
 
+img {
+  width: 80%;
+  height: auto;
+  border-radius: 1rem;
+  max-width: 600px;
+  align-self: center;
+}
 /* Container Area */
 
 .App-Container {
@@ -70,14 +83,6 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-img {
-  width: 80%;
-  height: auto;
-  border-radius: 1rem;
-  max-width: 600px;
-  align-self: center;
 }
 
 .vote-comment-section {
@@ -154,4 +159,10 @@ img {
 .active {
   color: orange;
   border: solid orange;
+}
+
+/* post comment */
+
+.post-button {
+  padding: 0.5rem;
 }
