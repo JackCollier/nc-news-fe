@@ -51,7 +51,7 @@ export const postComment = (id, body) => {
 };
 
 export const deleteComment = (id) => {
-  return newsApi.delete(`/articles/${id}/comments`).then((res) => {
+  return newsApi.delete(`/comments/${id}`).then((res) => {
     return res.data;
   });
 };
