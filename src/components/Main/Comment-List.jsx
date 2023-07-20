@@ -2,7 +2,7 @@ function CommentList({ articleComments }) {
   return articleComments.map(
     ({ author, body, created_at, votes, article_id, comment_id }) => {
       return (
-        <div className="comment">
+        <div className="comment" key={comment_id}>
           <section className="article-header">
             <h3>{author}</h3>
             <p>{created_at}</p>
