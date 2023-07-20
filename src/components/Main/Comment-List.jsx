@@ -13,8 +13,10 @@ function CommentList({ articleComments }) {
             <p>{created_at}</p>
           </section>
           <p className="comment-body">{body}</p>
-          <p className="comment-vote">Votes: {votes}</p>
-          {user.username === author ? <button>Delete Comment</button> : null}
+          <div className="article-header">
+            <p className="comment-vote">Votes: {votes}</p>
+            {user.username === author ? <button>Delete Comment</button> : null}
+          </div>
         </div>
       );
     }
