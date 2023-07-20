@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { UserContext } from "../../contexts/User";
 
 function CommentList({ articleComments }) {
@@ -13,6 +14,7 @@ function CommentList({ articleComments }) {
           </section>
           <p className="comment-body">{body}</p>
           <p className="comment-vote">Votes: {votes}</p>
+          {user.username === author ? <button>Delete Comment</button> : null}
         </div>
       );
     }
