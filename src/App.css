@@ -55,7 +55,7 @@ img {
   grid-area: header;
   display: flex;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
 }
 
 .main-container {
