@@ -4,9 +4,11 @@ import { postComment } from "../utils/Api-Util";
 function PostComment({ articleid }) {
   const [comment, setComment] = useState();
   const [commentSuccess, setCommentSuccess] = useState(null);
+  const [buttonLock, setButtonLock] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setButtonLock(true);
     if (!comment.length) {
       setCommentSuccess("empty");
     } else {
@@ -14,9 +16,11 @@ function PostComment({ articleid }) {
         .then((res) => {
           setCommentSuccess("posted");
           setComment("");
+          setButtonLock(false);
         })
         .catch((err) => {
           setCommentSuccess("error");
+          setButtonLock(false);
         });
     }
   };
@@ -41,7 +45,9 @@ function PostComment({ articleid }) {
         value={comment}
         placeholder="Add your comment here..."
       ></textarea>
-      <button className="post-button">Post Comment</button>
+      <button className="post-button" disabled={buttonLock}>
+        Post Comment
+      </button>
     </form>
   );
 }
