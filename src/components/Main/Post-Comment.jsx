@@ -9,8 +9,9 @@ function PostComment({ articleid }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setButtonLock(true);
-    if (!comment.length) {
+    if (comment === undefined) {
       setCommentSuccess("empty");
+      setButtonLock(false);
     } else {
       postComment(articleid, comment)
         .then((res) => {
