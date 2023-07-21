@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { postComment } from "../utils/Api-Util";
+import { UserContext } from "../../contexts/User";
 
 function PostComment({ articleid }) {
+  const { user, setUser } = useContext(UserContext);
   const [comment, setComment] = useState();
   const [commentSuccess, setCommentSuccess] = useState(null);
   const [buttonLock, setButtonLock] = useState(false);
@@ -13,7 +15,7 @@ function PostComment({ articleid }) {
       setCommentSuccess("empty");
       setButtonLock(false);
     } else {
-      postComment(articleid, comment)
+      postComment(articleid, comment, user.username)
         .then((res) => {
           setCommentSuccess("posted");
           setComment("");
