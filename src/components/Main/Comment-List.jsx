@@ -26,7 +26,7 @@ function CommentList({ articleComments }) {
         <div className="comment" key={comment_id}>
           <section className="article-header">
             <h3>{author}</h3>
-            <p>{created_at}</p>
+            <p>{created_at.slice(0, 10)}</p>
           </section>
           <p className="comment-body">{body}</p>
           <div className="article-header">
