@@ -209,9 +209,9 @@ img {
   padding: 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 738px) {
   .article {
-    max-width: 99%;
+    max-width: 95%;
   }
   .main-container {
     padding: 0.2rem;
@@ -227,5 +227,14 @@ img {
   }
   img {
     width: 99%;
+  }
+  .user-toggle-username-container {
+    flex-direction: column;
+  }
+  .dropdown-box {
+    flex-direction: column;
+  }
+  .menu-item:hover {
+    font-weight: bold;
   }
 }
