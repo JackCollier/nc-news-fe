@@ -33,7 +33,9 @@ function Username(params) {
       {open && (
         <div className="user-menu">
           {userArray.map(({ username }) => {
-            return <p onClick={() => setUser(username)}>{username}</p>;
+            return (
+              <p onClick={() => setUser({ username: username })}>{username}</p>
+            );
           })}
         </div>
       )}
