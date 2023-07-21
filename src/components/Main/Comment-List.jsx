@@ -24,12 +24,12 @@ function CommentList({ articleComments }) {
       const deletionFailed = deleteFailId === comment_id;
       return (
         <div className="comment" key={comment_id}>
-          <section className="article-header">
+          <section className="in-article-header">
             <h3>{author}</h3>
             <p>{created_at.slice(0, 10)}</p>
           </section>
           <p className="comment-body">{body}</p>
-          <div className="article-header">
+          <div className="in-article-header">
             <p className="comment-vote">Votes: {votes}</p>
             {user.username === author ? (
               <>
