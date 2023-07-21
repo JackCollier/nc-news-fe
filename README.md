@@ -22,7 +22,9 @@ NC News Frontend is built using React.js and styled with CSS. It consumes data f
 
 ## Backend Repository
 
-To see the code for the backend server/API that powers this app, you can visit the following repository: [NC News Backend](https://github.com/JackCollier/nc-news-api).
+To see the code for the backend server/API that powers this app, you can visit the following repository: [NC News Backend GitHub](https://github.com/JackCollier/nc-news-api).
+
+To see the live API visit the following: [nc-news-api](https://nc-news-kwsf.onrender.com/api)
 
 ## Local Development Requirements
 

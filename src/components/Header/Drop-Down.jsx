@@ -48,12 +48,12 @@ function DropDown(params) {
       >
         {open ? (
           <div className="dropdown-box" aria-label="Filter and Sort Options">
-            <section className="filter-topic-section">
-              <h4>Filter by Topic:</h4>
+            <section className="topic-section">
+              <h4 className="menu-title">Filter by Topic:</h4>
               {topics.map(({ slug }) => {
                 return (
                   <p
-                    className="hover-item"
+                    className="hover-item menu-item"
                     onClick={() => setTopicFilter(slug)}
                     key={slug}
                     role="menuitem"
@@ -63,34 +63,32 @@ function DropDown(params) {
                 );
               })}
             </section>
-            <section className="sortby-section">
-              <h4>Sort by:</h4>
-              <ul role="menu">
-                <li
-                  className="hover-item"
-                  onClick={() => setSortFilter("created_at")}
-                  role="menuitem"
-                >
-                  Date
-                </li>
-                <li
-                  className="hover-item"
-                  onClick={() => setSortFilter("comment_count")}
-                  role="menuitem"
-                >
-                  Comment Count
-                </li>
-                <li
-                  className="hover-item"
-                  onClick={() => setSortFilter("votes")}
-                  role="menuitem"
-                >
-                  Votes
-                </li>
-              </ul>
+            <section className="topic-section">
+              <h4 className="menu-title">Sort by:</h4>
+              <p
+                className="hover-item menu-item"
+                onClick={() => setSortFilter("created_at")}
+                role="menuitem"
+              >
+                Date
+              </p>
+              <p
+                className="hover-item menu-item"
+                onClick={() => setSortFilter("comment_count")}
+                role="menuitem"
+              >
+                Comment Count
+              </p>
+              <p
+                className="hover-item menu-item"
+                onClick={() => setSortFilter("votes")}
+                role="menuitem"
+              >
+                Votes
+              </p>
             </section>
             <section className="order-section">
-              <h4>Order by:</h4>
+              <h4 className="menu-title">Order:</h4>
               <button onClick={() => setOrderFilter("ASC")}>Ascending</button>
               <button onClick={() => setOrderFilter("DESC")}>Descending</button>
             </section>

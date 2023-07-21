@@ -42,9 +42,9 @@ export const patchArticleVotes = (id, vote) => {
   });
 };
 
-export const postComment = (id, body) => {
+export const postComment = (id, body, username) => {
   return newsApi
-    .post(`/articles/${id}/comments`, { username: "grumpy19", body: body })
+    .post(`/articles/${id}/comments`, { username: username, body: body })
     .then((res) => {
       return res.data;
     });
@@ -53,5 +53,11 @@ export const postComment = (id, body) => {
 export const deleteComment = (id) => {
   return newsApi.delete(`/comments/${id}`).then((res) => {
     return res.data;
+  });
+};
+
+export const getUsers = () => {
+  return newsApi.get("/users").then((res) => {
+    return res.data.users;
   });
 };
