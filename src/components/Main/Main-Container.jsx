@@ -25,8 +25,7 @@ function MainContainer(params) {
         setError(false);
       })
       .catch((err) => {
-        console.log(err);
-        setError(err.response.data || err.response.statusText);
+        setError(err.response.statusText);
       });
   }, [currentPageNumber, searchParams]);
 
