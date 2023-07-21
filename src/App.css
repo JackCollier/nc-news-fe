@@ -35,7 +35,7 @@ textarea {
 }
 
 img {
-  width: 80%;
+  width: 85%;
   height: auto;
   border-radius: 1rem;
   max-width: 600px;
@@ -70,6 +70,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 
 /* Article Area */
@@ -82,6 +83,8 @@ img {
   max-width: 620px;
   margin: 0 auto;
   gap: 1rem;
+  min-height: 23rem;
+  justify-content: space-around;
 }
 
 .article-header {
@@ -182,5 +185,17 @@ img {
   }
   .main-container {
     padding: 0.2rem;
+  }
+  .article-header {
+    text-align: center;
+    flex-direction: column;
+  }
+  .vote-comment-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+  img {
+    width: 99%;
   }
 }
