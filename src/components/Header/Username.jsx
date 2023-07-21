@@ -1,10 +1,23 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/User";
+import { getUsers } from "../utils/Api-Util";
 
 function Username(params) {
   const { user, setUser } = useContext(UserContext);
+  const [userArray, setUserArray] = useState();
+  const [open, setOpen] = useState(false);
 
-  return <p aria-label={`Logged in as ${user.username}`}>u\{user.username}</p>;
+  console.log(user);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
+  useEffect(() => {
+    getUsers().then((res) => {
+      setUserArray(res);
+    });
+  }, []);
 }
 
 export default Username;
