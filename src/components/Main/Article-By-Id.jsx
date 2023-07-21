@@ -20,8 +20,8 @@ function ArticleById(params) {
         setIndividualArticle(article);
         setIsLoading(false);
       })
-      .catch((err) => {
-        setError(err.response.statusText);
+      .catch(({ response }) => {
+        setError(response.statusText);
       });
     getCommentsByID(articleid).then((comments) => {
       setArticleComments(comments);

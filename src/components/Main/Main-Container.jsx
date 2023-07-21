@@ -24,8 +24,8 @@ function MainContainer(params) {
         setIsLoading(false);
         setError(false);
       })
-      .catch((err) => {
-        setError(err.response.statusText);
+      .catch(({ response }) => {
+        setError(response.statusText);
       });
   }, [currentPageNumber, searchParams]);
 
