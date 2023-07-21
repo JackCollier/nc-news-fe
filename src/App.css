@@ -18,6 +18,11 @@ li {
 textarea {
   resize: none;
   padding: 0.2rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 100%;
 }
 
 .hover-item:hover {
@@ -83,6 +88,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.article-title {
+  text-align: center;
 }
 
 .vote-comment-section {
@@ -165,4 +174,13 @@ img {
 
 .post-button {
   padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .article {
+    max-width: 99%;
+  }
+  .main-container {
+    padding: 0.2rem;
+  }
 }
