@@ -48,9 +48,9 @@ function ArticleById(params) {
   return (
     <div className="main-container">
       <div className="article">
-        <section className="article-header">
+        <section className="in-article-header">
           <h3>{topic}</h3>
-          <h4>{author}</h4>
+          <h4>u\{author}</h4>
         </section>
         <h2 className="article-title">{title}</h2>
         <img src={article_img_url} alt="" />
