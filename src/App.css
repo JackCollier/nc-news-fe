@@ -168,6 +168,16 @@ img {
   padding: 0.2rem;
 }
 
+.user-area-container {
+  position: relative;
+}
+
+.user-menu {
+  position: absolute;
+  background-color: #242424c5;
+  padding: 1rem;
+}
+
 /* comments */
 
 .comment {
