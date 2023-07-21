@@ -17,18 +17,20 @@ function Article({ articles }) {
     <>
       {articles.map((article) => {
         return (
-          <div className="article" key={article.article_id}>
-            <section className="article-header">
-              <h2
-                className="hover-item"
-                onClick={() => {
-                  navigate(`/articles/${article.article_id}`);
-                }}
-              >
-                {article.title}
+          <article className="article" key={article.article_id}>
+            <header className="article-header">
+              <h2 className="hover-item">
+                <a
+                  onClick={() => {
+                    navigate(`/articles/${article.article_id}`);
+                  }}
+                  role="link"
+                >
+                  {article.title}
+                </a>
               </h2>
               <p>u\{article.author}</p>
-            </section>
+            </header>
             <img
               onClick={() => {
                 navigate(`/articles/${article.article_id}`);
@@ -36,12 +38,13 @@ function Article({ articles }) {
               src={article.article_img_url}
               alt={article.title}
               className="hover-item"
+              role="link"
             />
             <section className="vote-comment-section">
               <Vote article={article} />
               <p>Comments: {article.comment_count}</p>
             </section>
-          </div>
+          </article>
         );
       })}
     </>

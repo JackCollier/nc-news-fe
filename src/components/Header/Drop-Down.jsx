@@ -38,9 +38,16 @@ function DropDown(params) {
 
   return (
     <>
-      <i className="fa fa-bars" aria-hidden="true" onClick={handleOpen}>
+      <i
+        className="fa fa-bars"
+        aria-hidden="true"
+        onClick={handleOpen}
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-label="Toggle Dropdown Menu"
+      >
         {open ? (
-          <div className="dropdown-box">
+          <div className="dropdown-box" aria-label="Filter and Sort Options">
             <section className="filter-topic-section">
               <h4>Filter by Topic:</h4>
               {topics.map(({ slug }) => {
@@ -49,6 +56,7 @@ function DropDown(params) {
                     className="hover-item"
                     onClick={() => setTopicFilter(slug)}
                     key={slug}
+                    role="menuitem"
                   >
                     {slug}
                   </p>
@@ -57,22 +65,25 @@ function DropDown(params) {
             </section>
             <section className="sortby-section">
               <h4>Sort by:</h4>
-              <ul>
+              <ul role="menu">
                 <li
                   className="hover-item"
                   onClick={() => setSortFilter("created_at")}
+                  role="menuitem"
                 >
                   Date
                 </li>
                 <li
                   className="hover-item"
                   onClick={() => setSortFilter("comment_count")}
+                  role="menuitem"
                 >
                   Comment Count
                 </li>
                 <li
                   className="hover-item"
                   onClick={() => setSortFilter("votes")}
+                  role="menuitem"
                 >
                   Votes
                 </li>

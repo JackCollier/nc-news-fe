@@ -55,20 +55,20 @@ function Vote({ article }) {
         className={`fa fa-arrow-up hover-item ${
           voteStatus === 1 ? "active" : ""
         }`}
-        aria-hidden="true"
+        aria-label="Upvote"
         onClick={() => handleVote(1)}
         disabled={voteStatus === -1}
       ></button>
-      <p>Votes: {articleVote}</p>
+      <p aria-live="polite">Votes: {articleVote}</p>
       <button
         className={`fa fa-arrow-down hover-item ${
           voteStatus === -1 ? "active" : ""
         }`}
-        aria-hidden="true"
+        aria-label="Downvote"
         onClick={() => handleVote(-1)}
         disabled={voteStatus === 1}
       ></button>
-      {!patchSuccess && <p>Vote failed</p>}
+      {!patchSuccess && <p role="alert">Vote failed</p>}
     </div>
   );
 }

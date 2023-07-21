@@ -42,7 +42,7 @@ function MainContainer(params) {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="main-container">
+    <main className="main-container">
       <Article articles={articles} />
       <section className="page-number-container">
         <PageButtons
@@ -50,7 +50,7 @@ function MainContainer(params) {
           currentPageNumber={currentPageNumber}
         />
       </section>
-    </div>
+    </main>
   );
 }
 

@@ -35,16 +35,19 @@ function PostComment({ articleid }) {
       ) : commentSuccess === "empty" ? (
         <p>Cannot submit empty post</p>
       ) : null}
+      <label htmlFor="comment-body">Add your comment:</label>
       <textarea
         name="body"
-        id="body"
+        id="comment-body"
         cols="80"
         rows="10"
         onChange={(event) => {
           setComment(event.target.value);
         }}
         value={comment}
-        placeholder="Add your comment here..."
+        placeholder="..."
+        required
+        aria-describedby="comment-validation-msg"
       ></textarea>
       <button className="post-button" disabled={buttonLock}>
         Post Comment

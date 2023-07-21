@@ -26,7 +26,9 @@ function CommentList({ articleComments }) {
         <div className="comment" key={comment_id}>
           <section className="in-article-header">
             <h3>{author}</h3>
-            <p>{created_at.slice(0, 10)}</p>
+            <time dateTime={created_at.slice(0, 10)}>
+              {created_at.slice(0, 10)}
+            </time>
           </section>
           <p className="comment-body">{body}</p>
           <div className="in-article-header">
@@ -36,6 +38,7 @@ function CommentList({ articleComments }) {
                 <button
                   onClick={() => handleDelete(comment_id)}
                   disabled={buttonLock}
+                  aria-label="Delete Comment"
                 >
                   Delete Comment
                 </button>

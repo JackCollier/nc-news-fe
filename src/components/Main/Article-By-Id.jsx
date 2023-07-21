@@ -47,17 +47,19 @@ function ArticleById(params) {
 
   return (
     <div className="main-container">
-      <div className="article">
-        <section className="in-article-header">
+      <article className="article">
+        <header className="in-article-header">
           <h3>{topic}</h3>
-          <h4>u\{author}</h4>
+          <h4>Written by: {author}</h4>
+        </header>
+        <h1 className="article-title">{title}</h1>
+        <img src={article_img_url} alt="Article Thumbnail" />
+        <section aria-label="Article Body">
+          <p>{body}</p>
         </section>
-        <h2 className="article-title">{title}</h2>
-        <img src={article_img_url} alt="" />
-        <p>{body}</p>
         <section className="vote-comment-section">
           <Vote article={individualArticle} />
-          <p>comments: {comment_count}</p>
+          <p>Comments: {comment_count}</p>
         </section>
         <div className="post-comment-section">
           <PostComment articleid={articleid} />
@@ -65,7 +67,7 @@ function ArticleById(params) {
         <div className="comment-section">
           <CommentList articleComments={articleComments} />
         </div>
-      </div>
+      </article>
     </div>
   );
 }
