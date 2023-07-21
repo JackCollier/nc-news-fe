@@ -5,18 +5,24 @@ import Loading from "../Loading";
 import Vote from "./Vote";
 import PostComment from "./Post-Comment";
 import CommentList from "./Comment-List";
+import Error from "../Error";
 
 function ArticleById(params) {
   const { articleid } = useParams();
   const [individualArticle, setIndividualArticle] = useState({});
   const [articleComments, setArticleComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getArticleById(articleid).then((article) => {
-      setIndividualArticle(article);
-      setIsLoading(false);
-    });
+    getArticleById(articleid)
+      .then((article) => {
+        setIndividualArticle(article);
+        setIsLoading(false);
+      })
+      .catch(({ response }) => {
+        setError(response.statusText);
+      });
     getCommentsByID(articleid).then((comments) => {
       setArticleComments(comments);
     });
@@ -32,6 +38,10 @@ function ArticleById(params) {
     article_img_url,
     comment_count,
   } = individualArticle;
+
+  if (error) {
+    return <Error message={error} />;
+  }
 
   if (isLoading) return <Loading />;
 
