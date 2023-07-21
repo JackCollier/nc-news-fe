@@ -43,7 +43,6 @@ export const patchArticleVotes = (id, vote) => {
 };
 
 export const postComment = (id, body, username) => {
-  console.log(username);
   return newsApi
     .post(`/articles/${id}/comments`, { username: username, body: body })
     .then((res) => {
