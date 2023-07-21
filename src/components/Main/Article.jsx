@@ -27,7 +27,7 @@ function Article({ articles }) {
               >
                 {article.title}
               </h2>
-              <p>{article.author}</p>
+              <p>u\{article.author}</p>
             </section>
             <img
               onClick={() => {
