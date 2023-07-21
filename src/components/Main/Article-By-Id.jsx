@@ -52,7 +52,7 @@ function ArticleById(params) {
           <h3>{topic}</h3>
           <h4>{author}</h4>
         </section>
-        <h2>{title}</h2>
+        <h2 className="article-title">{title}</h2>
         <img src={article_img_url} alt="" />
         <p>{body}</p>
         <section className="vote-comment-section">
