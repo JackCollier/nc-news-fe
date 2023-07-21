@@ -62,7 +62,7 @@ function ArticleById(params) {
           <p>Comments: {comment_count}</p>
         </section>
         <div className="post-comment-section">
-          <PostComment articleid={articleid} />
+          <PostComment articleid={articleid} author={author} />
         </div>
         <div className="comment-section">
           <CommentList articleComments={articleComments} />
