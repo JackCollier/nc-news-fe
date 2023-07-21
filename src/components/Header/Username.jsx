@@ -18,6 +18,27 @@ function Username(params) {
       setUserArray(res);
     });
   }, []);
+
+  return (
+    <div className="user-area-container">
+      <button
+        className="hidden-button"
+        onClick={handleOpen}
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-label="Toggle Dropdown Menu"
+      >
+        <i className="fa fa-users hover-item" aria-hidden="true"></i>
+      </button>
+      {open && (
+        <div className="user-menu">
+          {userArray.map(({ username }) => {
+            return <p onClick={() => setUser(username)}>{username}</p>;
+          })}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Username;
