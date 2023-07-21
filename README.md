@@ -20,8 +20,6 @@ NC News Frontend is built using React.js and styled with CSS. It consumes data f
 
 4. To explore different topics, you can use the navigation bar at the top, which lists all available topics. Clicking on a topic will filter the articles based on the selected category.
 
-5. Enjoy reading and engaging with the NC News community!
-
 ## Backend Repository
 
 To see the code for the backend server/API that powers this app, you can visit the following repository: [NC News Backend](https://github.com/JackCollier/nc-news-api).
