@@ -21,7 +21,7 @@ function ArticleById(params) {
         setIsLoading(false);
       })
       .catch((err) => {
-        setError(err.response.statusText);
+        setError(err.response.data || err.response.statusText);
       });
     getCommentsByID(articleid).then((comments) => {
       setArticleComments(comments);
