@@ -1,4 +1,3 @@
-import DropDown from "./Drop-Down";
 import Title from "./Title";
 import Username from "./Username";
 
@@ -7,7 +6,6 @@ function HeaderContainer() {
     <header className="header-container">
       <Username />
       <Title />
-      <DropDown />
     </header>
   );
 }
