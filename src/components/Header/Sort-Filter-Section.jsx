@@ -36,17 +36,14 @@ function SortFilter(params) {
     <div className="drop-container">
       <div className="topic-sort-flex">
         <section className="topic-section">
-          <select name="topic" id="topic" className="topic-select">
+          <select
+            name="topic"
+            id="topic"
+            className="topic-select"
+            onChange={(e) => setTopicFilter(e.target.value)}
+          >
             {topics.map(({ slug }) => {
-              return (
-                <option
-                  key={slug}
-                  onClick={() => setTopicFilter(slug)}
-                  onTouchStart={() => setTopicFilter(slug)}
-                >
-                  {slug}
-                </option>
-              );
+              return <option key={slug}>{slug}</option>;
             })}
           </select>
         </section>
