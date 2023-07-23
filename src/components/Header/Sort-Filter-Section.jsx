@@ -34,28 +34,30 @@ function SortFilter(params) {
 
   return (
     <div className="drop-container">
-      <section className="topic-section">
-        <select name="topic" id="topic" className="topic-select">
-          {topics.map(({ slug }) => {
-            return (
-              <option key={slug} onClick={() => setTopicFilter(slug)}>
-                {slug}
-              </option>
-            );
-          })}
-        </select>
-      </section>
-      <section className="sort-section">
-        <select name="sort" id="sort" className="sort-select">
-          {sortArray.map((sort) => {
-            return (
-              <option key={sort} onClick={() => setSortFilter(sort)}>
-                {sort}
-              </option>
-            );
-          })}
-        </select>
-      </section>
+      <div className="topic-sort-flex">
+        <section className="topic-section">
+          <select name="topic" id="topic" className="topic-select">
+            {topics.map(({ slug }) => {
+              return (
+                <option key={slug} onClick={() => setTopicFilter(slug)}>
+                  {slug}
+                </option>
+              );
+            })}
+          </select>
+        </section>
+        <section className="sort-section">
+          <select name="sort" id="sort" className="sort-select">
+            {sortArray.map((sort) => {
+              return (
+                <option key={sort} onClick={() => setSortFilter(sort)}>
+                  {sort}
+                </option>
+              );
+            })}
+          </select>
+        </section>
+      </div>
       <section className="order-section">
         <button onClick={() => setOrderFilter("DESC")} className="order-select">
           <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
