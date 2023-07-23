@@ -5,6 +5,7 @@ import { useSearchParams, Link } from "react-router-dom";
 function SortFilter(params) {
   const [topics, setTopics] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const sortArray = ["created_at", "comment_count", "votes"];
 
   const setTopicFilter = (topic) => {
     setSearchParams((newParams) => {
@@ -45,7 +46,15 @@ function SortFilter(params) {
         </select>
       </section>
       <section className="sort-section">
-        <select name="sort" id="sort"></select>
+        <select name="sort" id="sort">
+          {sortArray.map((sort) => {
+            return (
+              <option key={sort} onClick={() => setSortFilter(sort)}>
+                {sort}
+              </option>
+            );
+          })}
+        </select>
       </section>
     </div>
   );
