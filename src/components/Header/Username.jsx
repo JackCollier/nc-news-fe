@@ -20,16 +20,18 @@ function Username(params) {
   return (
     <div className="user-area-container">
       <div className="user-toggle-username-container">
-        <button
-          className="hidden-button"
-          onClick={handleOpen}
-          aria-haspopup="true"
-          aria-expanded={open}
-          aria-label="Toggle Dropdown Menu"
-        >
-          <i className="fa fa-users hover-item" aria-hidden="true"></i>
-        </button>
-        <p>{user.username}</p>
+        <div className="flex">
+          <button
+            className="hidden-button"
+            onClick={handleOpen}
+            aria-haspopup="true"
+            aria-expanded={open}
+            aria-label="Toggle Dropdown Menu"
+          >
+            <i className="fa fa-users hover-item" aria-hidden="true"></i>
+          </button>
+          <p>{user.username}</p>
+        </div>
       </div>
       {open && (
         <div className="user-menu">
