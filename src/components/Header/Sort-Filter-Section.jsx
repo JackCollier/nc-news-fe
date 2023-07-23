@@ -48,13 +48,14 @@ function SortFilter(params) {
           </select>
         </section>
         <section className="sort-section">
-          <select name="sort" id="sort" className="sort-select">
+          <select
+            name="sort"
+            id="sort"
+            className="sort-select"
+            onChange={(e) => setSortFilter(e.target.value)}
+          >
             {sortArray.map((sort) => {
-              return (
-                <option key={sort} onClick={() => setSortFilter(sort)}>
-                  {sort}
-                </option>
-              );
+              return <option key={sort}>{sort}</option>;
             })}
           </select>
         </section>
