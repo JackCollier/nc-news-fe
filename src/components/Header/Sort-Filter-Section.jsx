@@ -35,7 +35,7 @@ function SortFilter(params) {
   return (
     <div className="drop-container">
       <section className="topic-section">
-        <select name="topic" id="topic">
+        <select name="topic" id="topic" className="topic-select">
           {topics.map(({ slug }) => {
             return (
               <option key={slug} onClick={() => setTopicFilter(slug)}>
@@ -46,7 +46,7 @@ function SortFilter(params) {
         </select>
       </section>
       <section className="sort-section">
-        <select name="sort" id="sort">
+        <select name="sort" id="sort" className="sort-select">
           {sortArray.map((sort) => {
             return (
               <option key={sort} onClick={() => setSortFilter(sort)}>
@@ -55,14 +55,14 @@ function SortFilter(params) {
             );
           })}
         </select>
-        <section className="order-section">
-          <button onClick={() => setOrderFilter("DESC")}>
-            <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
-          </button>
-          <button onClick={() => setOrderFilter("ASC")}>
-            <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
-          </button>
-        </section>
+      </section>
+      <section className="order-section">
+        <button onClick={() => setOrderFilter("DESC")} className="order-select">
+          <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+        </button>
+        <button onClick={() => setOrderFilter("ASC")} className="order-select">
+          <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+        </button>
       </section>
     </div>
   );
