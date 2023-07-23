@@ -40,6 +40,12 @@ img {
   max-width: 600px;
   align-self: center;
 }
+
+.flex {
+  display: flex;
+  gap: 0.3rem;
+}
+
 /* Container Area */
 
 .App-Container {
@@ -141,6 +147,10 @@ img {
 
 .fa-arrow-up-short-wide {
   font-size: 2rem;
+}
+
+.fa-users {
+  padding: 0rem 0.7rem 0rem 0.7rem;
 }
 
 /* dropdown 8 */
