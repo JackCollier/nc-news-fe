@@ -46,9 +46,10 @@ img {
   /* height: 100vh; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 0.025fr 1fr;
+  grid-template-rows: 0.025fr 0.011fr 1fr;
   grid-template-areas:
     "header header header header"
+    "drop drop drop drop"
     "main main main main";
   padding: 0.2rem;
   gap: 0.15rem;
@@ -138,18 +139,11 @@ img {
   cursor: pointer;
 }
 
-/* dropdown 8 */
-
-.dropdown-box {
-  position: absolute;
-  right: 0px;
-  background-color: #242424c5;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  padding: 0.3rem;
-  cursor: auto;
-  display: flex;
-  gap: 0.8rem;
+.fa-arrow-up-short-wide {
+  font-size: 2rem;
 }
+
+/* dropdown 8 */
 
 .topic-section {
   min-width: 190px;
@@ -184,6 +178,31 @@ img {
 
 .menu-title {
   font-size: 1.5rem;
+}
+
+.sub-header-container {
+  grid-area: drop;
+  padding: 0.4rem;
+  width: 70%;
+  min-width: 470px;
+  margin: 0 auto;
+}
+
+.drop-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.topic-select,
+.sort-select,
+.order-select {
+  font-size: 1rem;
+  padding: 0.2rem;
+}
+
+.topic-sort-flex {
+  display: flex;
 }
 
 /* comments */
@@ -236,5 +255,12 @@ img {
   }
   .menu-item:hover {
     font-weight: bold;
+  }
+  .drop-container {
+    flex-direction: column;
+  }
+  .sub-header-container {
+    width: 100%;
+    min-width: 0px;
   }
 }
