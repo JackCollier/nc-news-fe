@@ -55,6 +55,14 @@ function SortFilter(params) {
             );
           })}
         </select>
+        <section className="order-section">
+          <button onClick={() => setOrderFilter("DESC")}>
+            <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+          </button>
+          <button onClick={() => setOrderFilter("ASC")}>
+            <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+          </button>
+        </section>
       </section>
     </div>
   );
