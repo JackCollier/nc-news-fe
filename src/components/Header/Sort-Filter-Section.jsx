@@ -39,7 +39,11 @@ function SortFilter(params) {
           <select name="topic" id="topic" className="topic-select">
             {topics.map(({ slug }) => {
               return (
-                <option key={slug} onClick={() => setTopicFilter(slug)}>
+                <option
+                  key={slug}
+                  onClick={() => setTopicFilter(slug)}
+                  onTouchStart={() => setTopicFilter(slug)}
+                >
                   {slug}
                 </option>
               );
