@@ -46,7 +46,7 @@ img {
   /* height: 100vh; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 0.025fr 0.015fr 1fr;
+  grid-template-rows: 0.025fr 0.011fr 1fr;
   grid-template-areas:
     "header header header header"
     "drop drop drop drop"
@@ -182,7 +182,6 @@ img {
 
 .sub-header-container {
   grid-area: drop;
-  border: solid red;
   padding: 0.4rem;
   width: 70%;
   min-width: 470px;
@@ -190,7 +189,6 @@ img {
 }
 
 .drop-container {
-  border: solid green;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -202,6 +200,11 @@ img {
   font-size: 1rem;
   padding: 0.2rem;
 }
+
+.topic-sort-flex {
+  display: flex;
+}
+
 /* comments */
 
 .comment {
@@ -252,5 +255,12 @@ img {
   }
   .menu-item:hover {
     font-weight: bold;
+  }
+  .drop-container {
+    flex-direction: column;
+  }
+  .sub-header-container {
+    width: 100%;
+    min-width: 0px;
   }
 }
