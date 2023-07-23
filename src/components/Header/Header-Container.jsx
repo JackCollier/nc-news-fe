@@ -4,8 +4,8 @@ import Username from "./Username";
 function HeaderContainer() {
   return (
     <header className="header-container">
-      <Username />
       <Title />
+      <Username />
     </header>
   );
 }
