@@ -20,7 +20,7 @@ function CommentList({ articleComments }) {
   };
 
   return articleComments.map(
-    ({ author, body, created_at, votes, article_id, comment_id }) => {
+    ({ author, body, created_at, votes, comment_id }) => {
       const deletionFailed = deleteFailId === comment_id;
       return (
         <div className="comment" key={comment_id}>
