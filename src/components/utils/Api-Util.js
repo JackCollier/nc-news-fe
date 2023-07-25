@@ -14,7 +14,7 @@ export const getArticles = (pageNum, topics, sortby, orderBy) => {
   };
 
   return newsApi.get("/articles", { params }).then((res) => {
-    return res.data.articles.articles;
+    return res.data.articles;
   });
 };
 

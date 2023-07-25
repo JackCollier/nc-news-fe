@@ -11,6 +11,7 @@ function MainContainer(params) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [articles, setArticles] = useState([]);
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
+  const [totalArticles, setTotalArticles] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -20,7 +21,8 @@ function MainContainer(params) {
     const sortByOrder = searchParams.get("order");
     getArticles(currentPageNumber, topicParam, sortByParam, sortByOrder)
       .then((articleData) => {
-        setArticles(articleData);
+        setArticles(articleData.articles);
+        setTotalArticles(articleData.total_count);
         setIsLoading(false);
         setError(false);
       })
@@ -30,9 +32,13 @@ function MainContainer(params) {
   }, [currentPageNumber, searchParams]);
 
   const handlePageChange = (binary) => {
-    binary
-      ? setCurrentPageNumber(currentPageNumber + 1)
-      : setCurrentPageNumber(currentPageNumber - 1);
+    const totalPages = Math.ceil(totalArticles / 5);
+
+    if (binary && currentPageNumber < totalPages) {
+      setCurrentPageNumber(currentPageNumber + 1);
+    } else if (!binary && currentPageNumber > 1) {
+      setCurrentPageNumber(currentPageNumber - 1);
+    }
   };
 
   if (error) {
