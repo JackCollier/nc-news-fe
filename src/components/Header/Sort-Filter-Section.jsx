@@ -66,14 +66,14 @@ function SortFilter(params) {
           className="order-select"
           aria-label="Sort in descending order"
         >
-          <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+          <i className="fa fa-sort-amount-desc" aria-hidden="true"></i>
         </button>
         <button
           onClick={() => setOrderFilter("ASC")}
           className="order-select"
           aria-label="Sort in ascending order"
         >
-          <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+          <i className="fa fa-sort-amount-asc" aria-hidden="true"></i>
         </button>
       </section>
     </div>
