@@ -61,3 +61,9 @@ export const getUsers = () => {
     return res.data.users;
   });
 };
+
+export const patchCommentVote = (id, vote) => {
+  return newsApi.patch(`/comments/${id}`, { inc_votes: vote }).then((res) => {
+    return res.data;
+  });
+};
