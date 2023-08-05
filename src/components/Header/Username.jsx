@@ -38,6 +38,7 @@ function Username(params) {
           {userArray.map(({ username }) => {
             return (
               <p
+                key={username}
                 className="hover-item"
                 onClick={() => setUser({ username: username })}
               >
