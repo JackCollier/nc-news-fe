@@ -28,16 +28,8 @@ function ArticleById(params) {
     });
   }, [articleComments]);
 
-  const {
-    title,
-    topic,
-    author,
-    body,
-    created_at,
-    votes,
-    article_img_url,
-    comment_count,
-  } = individualArticle;
+  const { title, topic, author, body, article_img_url, comment_count } =
+    individualArticle;
 
   if (error) {
     return <Error message={error} />;
